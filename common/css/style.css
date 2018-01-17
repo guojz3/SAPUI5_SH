@@ -1,0 +1,143 @@
+/* 表格滑动 */
+*:not(.sapMList)>.sapMIBar {
+    height: 3rem !important;
+    padding-left: 0.75rem;
+}
+
+*:not(.sapMList)>.sapMIBar .sapMBarChild.sapMTitle span {
+    font-size: 1.125rem !important;
+}
+
+.sapMIBar+.sapMList>header {
+    display: none;
+}
+
+.sapMList table {
+    min-width: 100%;
+    table-layout: auto !important;
+}
+
+.sapMList table th,
+.sapMList table td,
+.sapMList table .sapMText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sapMList {
+    overflow-x: auto;
+}
+.sapMDialog .sapMList>.sapMIBar{background:#fff;}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.sapMDialog .sapMList>.sapMIBar{position:fixed;top:40px;left:0;right:0;}
+	.sapMDialog .sapMList>.sapMIBar+[tabindex]{margin-top:48px;}
+}
+.sapMListTblCell>.sapMInput{padding:0;height:25px;}
+.sapMListTblCell>.sapMInput>.sapMInputBaseInner{height:100%;}
+/*弹出表格类型校验格式*/
+
+/* sapui5 1.38 Input enabled false border not show */
+
+.sapMInputBaseReadonlyInner {
+    border-color: #cccccc;
+    background-color: rgba(242, 242, 242, 0.5);
+}
+
+
+/* sapui5 1.38 MultipleInput enabled false border not show */
+
+.sapMMultiInputNotEditable .sapMMultiInputBorder {
+    border: 1px solid #cccccc;
+    background-color: rgba(242, 242, 242, 0.5);
+}
+.sapMMultiInputNotEditable .sapMMultiInputBorder:hover {
+    border: 1px solid #cccccc;
+}
+
+/* 费用申请说明 TextArea 左边和上面的Input对齐 */
+
+.sapUiRespGridMedia-Std-Tablet.sapUiRespGridHSpace0>.sapUiRespGridSpanM9 {
+    width: 75%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+/* 费用申请说明 TextArea 左边和上面的Input对齐 */
+
+.sapUiRespGridMedia-Std-Desktop.sapUiRespGridHSpace0>.sapUiRespGridSpanL9 {
+    width: 75%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+/* Label * 显示为红色 */
+
+.sapMLabelRequired:before {
+    content: "*";
+    color: red;
+    font-size: 1rem;
+    line-height: 0.9375rem;
+}
+
+
+/* 列表Form表单输入的行间距过大 ，要缩小 */
+
+.sapUiFormResGrid>div {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+
+/* 列表Form表单输入的行间距过大 ，要缩小 */
+
+.sapUiFormResGridCont {
+    padding-bottom: 0px;
+}
+
+
+/* 列表Form表单输入的行间距过大 ，要缩小 */
+
+.sapUiSizeCompact .sapUiFormContainerTitle>.sapUiFormTitle {
+    height: 2rem;
+    line-height: 2rem;
+    display: none;
+}
+
+
+/* 列表Form表单输入的行间距过大 ，要缩小 */
+
+.sapUiSizeCompact .sapUiFormM>.sapUiFormResGrid>.sapUiFormContainerTitle,
+.sapUiSizeCompact .sapUiFormM>.sapUiFormResGrid>.sapUiFormContainerToolbar {
+    padding-top: 0px;
+}
+
+
+/* 手机 列表Form表单输入的行间距过大 ，要缩小 */
+
+.sapUiSizeCozy .sapUiFormContainerTitle>.sapUiFormTitle {
+    height: 2rem;
+    line-height: 2rem;
+    display: none;
+}
+
+
+/* 手机 列表Form表单输入的行间距过大 ，要缩小 */
+
+.sapUiSizeCozy .sapUiFormS>.sapUiFormResGrid>.sapUiFormContainerTitle,
+.sapUiSizeCompact .sapUiFormS>.sapUiFormResGrid>.sapUiFormContainerToolbar {
+    padding-top: 5px;
+}
+
+/*凭证预览界面列宽度*/
+table[id*="docitemtabel"]{table-layout:auto !important;}
+table[id*="docitemtabel"] th,table[id*="docitemtabel"] td,table[id*="docitemtabel"] .sapMText{white-space:nowrap;}
+/*任务详情高度控制*/
+/*@media screen and (min-width: 768px) {
+section[id*=--xmlviewname][style*=hidden],[id*=--xmlviewname].sapMNavItem.sapMPage.sapMPageBgStandard.sapMPageBusyCoversAll.sapMPageWithHeader{position: static !important;}
+header+section[id*=appack][style*=hidden]{padding-bottom:10px;display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-direction: column;-webkit-flex-direction: column;flex-direction: column;}
+[id*=_vbox]+.sapMScrollCont.sapMScrollContVH{-ms-flex: 1;-webkit-flex: 1;flex: 1;}
+[id*=idIconTabBarMulti-containerContent].sapMITBContainerContent{height:auto !important;}
+}*/

@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>舱位席别}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Spslist" items="{path: 'model_Sps>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索舱位席别列表}" value="" search="onSearchSps"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="40%" >
+						<Text text="{i18n>舱位席别类型}"/>
+					</Column>
+					<Column width="60%">
+						<Text text="{i18n>舱位席别名称}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedSps">
+						<cells>
+							<Text text="{model_Sps>Sps}"/>
+						</cells>
+						<cells>
+							<Text text="{model_Sps>Spsdsc}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		
+		<beginButton>
+			<Button text="{i18n>确定}" press="onCancelSpsSelect"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelSpsSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

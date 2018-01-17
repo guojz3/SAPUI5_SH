@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="3" labelSpanL="3"
+		emptySpanM="1" emptySpanL="1" columnsL="2" columnsM="2">
+		<f:content>
+			<core:Title text=" "/>
+			<Label text="付款方" required="true"/>
+			<Input id="Todo_IP_Fkfzh" value="{fkxx_data>/Fkfzh}" width='100%'/>
+			<!--<MultiInput showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowFkfzhsHelp" id="view_Edit_Fkfzh" value=" {Fkfzh}{=${Text1} ? '|'+ ${Text1}:''}"></MultiInput>-->
+			<Label text="付款银行名称" required="true"/>
+			<MultiInput showValueHelp="true" valueHelpRequest="onShowHbkidHelp"  width='100%'
+				value="{= !${fkxx_data>/Hbkid} ? '' : ${fkxx_data>/Hbkid}+'|'+${fkxx_data>/Banka}}" valueHelpOnly="true" id="Todo_IP_Hbkid"
+				liveChange="onClearValueState"></MultiInput>
+			<Label text="付款银行账号" required="true"/>
+			<MultiInput showValueHelp="true" width='100%' valueHelpRequest="onShowBanknHelp" value="{fkxx_data>/Bankn}" valueHelpOnly="true" id="Todo_IP_Bankn"
+				liveChange="onClearValueState"></MultiInput>
+			<Label text="原因代码" required="true"/>
+			<MultiInput showValueHelp="true" value="{= !${fkxx_data>/Rstgr}? '' : ${fkxx_data>/Rstgr}+'|'+${fkxx_data>/Txt20}}" valueHelpOnly="true"
+				id="Todo_IP_Rstgr"  width='100%' liveChange="onClearValueState" showSuggestion="true" valueHelpRequest="onShowRstgrHelp"></MultiInput>
+			<core:Title text=" "/>
+			<Label text="合同号"/>
+			<MultiInput showValueHelp="true" value="{= !${fkxx_data>/Zzhth} ? '' : ${fkxx_data>/Zzhth}+'|'+${fkxx_data>/Zzhthms}}" valueHelpOnly="true"
+				id="Todo_IP_Zzhth"  width='100%' liveChange="onClearValueState" valueHelpRequest="onShowZzhthHelp"></MultiInput>
+			<Label text="利润中心"/>
+			<MultiInput showValueHelp="true" value="{= !${fkxx_data>/Prctr} ? '' : ${fkxx_data>/Prctr}+'|'+${fkxx_data>/KtextPrctr}}"
+				valueHelpOnly="true" width='100%' id="Todo_IP_Prctr" liveChange="onClearValueState" valueHelpRequest="onShowCostBukrsHelp"></MultiInput>
+			<Label text="资金计划项目"/>
+			<MultiInput showValueHelp="true" value="{= !${fkxx_data>/Zzzjjh}? '' : ${fkxx_data>/Zzzjjh}+'|'+${fkxx_data>/Zzzjjhms}}"
+				valueHelpOnly="true" width='100%' id="Todo_IP_Zzzjjh" liveChange="onClearValueState" valueHelpRequest="onShowZzzjjhHelp"></MultiInput>
+			<Label text="更新" visible="false"/>
+			<Input value="{fkxx_data>/Flag}" editable="false" id="Todo_IP_Flag" visible="false"/>
+			<Label text="公司代码" visible="false"/>
+			<Input value="{fkxx_data>/Bukrs}" editable="false" id="Todo_IP_Bukrs" visible="false"/>
+			<Label text="单据编号" required="true" visible="false"/>
+			<Input value="{model_edit>/Recode}" visible="false" editable="false" id="Todo_IP_Recode"/>
+		</f:content>
+	</f:SimpleForm>
+	<Toolbar>
+		<ToolbarSpacer/>
+		<Button id="view_Fkxx_save" text="保存" type="Accept" width="80px" press="TodoListFkxxsavePressed"/>
+	</Toolbar>
+</core:FragmentDefinition>

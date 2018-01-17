@@ -1,0 +1,185 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Panel>
+		<Title text="{header_data>/Butxt}" textAlign="Center" width="100%"/>
+	</Panel>
+	<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+		emptySpanL="2" columnsL="2" columnsM="2">
+		<f:content>
+			<core:Title text="Office"/>
+			<Label text="凭证日期" required="true"/>
+			<DatePicker id="view_BLDAT" placeholder=" " dateValue="{header_data>/Bldat}" displayFormat="yyyy.MM.dd" change="handleChange"/>
+			<Label text="记账日期" required="true"/>
+			<DatePicker id="view_BUDAT" placeholder=" " dateValue="{header_data>/Budat}" displayFormat="yyyy.MM.dd" change="handleChange"/>
+			<Label text="凭证类型"/>
+			<Input value="BZ" id="view_BLART" editable="false"/>
+			<Label text="公司代码"/>
+			<Input value="{header_data>/Bukrs}" id="view_BUKRS" editable="false"/>
+			<Label text="附件张数" required="true"/>
+			<Input value="{header_data>/Numpg}" id="view_NUMPG" />
+			<Label text="抬头文本"/>
+			<Input value="{header_data>/Bktxt}" id="view_BKTXT"/>
+			<core:Title text=" "/>
+			<Label text="凭证编号"/>
+			<Input value="{header_data>/Belnr}" id="view_BELNR" editable="false"/>
+			<Label text="用户名"/>
+			<Input value="{header_data>/Usnam}" id="view_USNAM" editable="false"/>
+			<Label text="货币"/>
+			<Input value="{header_data>/Waers}" id="view_WAERS" editable="false"/>
+			<Label text="汇率" required="true"/>
+			<Input value="{header_data>/Kursf}" id="view_KURSF"/>
+			<Label text="单据编号"/>
+			<Input value="{model_edit>/Recode}" editable="false" id="view_CODE"/>
+		</f:content>
+	</f:SimpleForm>
+	<ScrollContainer height="75%" width="100%" horizontal="true" vertical="true" focusable="flase">
+		<Table items="{path:'item_data>/results'}" id="docitemtabel">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="" level="H2"/>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column >
+					<Text text="序号"/>
+				</Column>
+				<Column >
+					<Text text="记账码"/>
+				</Column>
+				<Column >
+					<Text text="借/贷"/>
+				</Column>
+				<Column>
+					<Text text="总账科目"/>
+				</Column>
+				<Column hAlign="End">
+					<Text text="金额"/>
+				</Column>
+				<Column>
+					<Text text="供应商"/>
+				</Column>
+				<Column>
+					<Text text="行项目文本"/>
+				</Column>
+				<Column>
+					<Text text="成本中心"/>
+				</Column>
+				<Column>
+					<Text text="利润中心"/>
+				</Column>
+				<Column>
+					<Text text="原因代码"/>
+				</Column>
+				<Column>
+					<Text text="分配"/>
+				</Column>
+				<Column>
+					<Text text="订单"/>
+				</Column>
+				<Column>
+					<Text text="往来业务性质"/>
+				</Column>
+				<Column>
+					<Text text="税码"/>
+				</Column>
+				<Column>
+					<Text text="wbs元素"/>
+				</Column>
+				<Column>
+					<Text text="客户"/>
+				</Column>
+				<Column>
+					<Text text="资金计划项"/>
+				</Column>
+				<Column>
+					<Text text="合同号"/>
+				</Column>
+				<Column>
+					<Text text="车型"/>
+				</Column>
+				<Column>
+					<Text text="车号"/>
+				</Column>
+				<Column>
+					<Text text="地区类别"/>
+				</Column>
+				<Column>
+					<Text text="分线核算"/>
+				</Column>
+				<Column>
+					<Text text="辅助核算01"/>
+				</Column>
+				<Column>
+					<Text text="辅助核算02"/>
+				</Column>
+				<Column>
+					<Text text="辅助核算03"/>
+				</Column>
+				<Column>
+					<Text text="辅助核算04"/>
+				</Column>
+				<Column>
+					<Text text="辅助核算类别"/>
+				</Column>
+				<Column>
+					<Text text="辅助核算内容"/>
+				</Column>
+				<Column>
+					<Text text="业务类型"/>
+				</Column>
+				<Column>
+					<Text text="功能范围"/>
+				</Column>
+				<Column>
+					<Text text="数量"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text visible="true" text="{item_data>Reitem}"/>
+						<Text visible="true" text="{item_data>Bschl}"/>
+						<Text visible="true" text="{item_data>Shkzg}"/>
+						<ObjectIdentifier title="{item_data>Hkont}" text="{item_data>Txt20}"/>
+						<Text visible="true" text="{item_data>Wrbtr}"/>
+						<ObjectIdentifier title="{item_data>Lifnr}" text="{item_data>Name1}"/>
+						<Text visible="true" text="{item_data>Sgtxt}"/>
+						<ObjectIdentifier title="{item_data>Kostl}" text="{item_data>Ktext_kostl}"/>
+						<ObjectIdentifier title="{item_data>Prctr}" text="{item_data>Ktext_prctr}"/>
+						<Text visible="true" text="{item_data>Rstgr}"/>
+						<Text visible="true" text="{item_data>Zuonr}"/>
+						<Text visible="true" text="{item_data>Aufnr}"/>
+						<!--<Text visible="true" text="{item_data>Zzjshkdw}"/>-->
+						<ObjectIdentifier title="{item_data>Zzjshkdw}" text="{item_data>Zzjshkdwms}"/>
+						<Text visible="true" text="{item_data>Mwskz}"/>
+						<Text visible="true" text="{item_data>Posid}"/>
+						<Text visible="true" text="{item_data>Kunnr}"/>
+						<Text visible="true" text="{item_data>Zzzjjh}"/>
+						<Text visible="true" text="{item_data>Zzflht}"/>
+						<Text visible="true" text="{item_data>Zzcx}"/>
+						<Text visible="true" text="{item_data>Zzch}"/>
+						<Text visible="true" text="{item_data>Zzdqlb}"/>
+						<Text visible="true" text="{item_data>Zzfxcb}"/>
+						<Text visible="true" text="{item_data>Zzfzhs01}"/>
+						<Text visible="true" text="{item_data>Zzfzhs02}"/>
+						<Text visible="true" text="{item_data>Zzfzhs03}"/>
+						<Text visible="true" text="{item_data>Zzfzhs04}"/>
+						<Text visible="true" text="{item_data>Zzfzhslb}"/>
+						<Text visible="true" text="{item_data>Zzfzhsnr}"/>
+						<Text visible="true" text="{item_data>Zzghjh}"/>
+						<Text visible="true" text="{item_data>Fkber}"/>
+						<Text visible="true" text="{item_data>Menge}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</ScrollContainer>
+	<Toolbar>
+		<ToolbarSpacer/>
+		<VBox>
+			<Button id="view_Doc_post" text="过账" type="Accept" width="80px" press="DocPostPress"/>
+			<Label text="."/>
+		</VBox>
+	</Toolbar>
+</core:FragmentDefinition>

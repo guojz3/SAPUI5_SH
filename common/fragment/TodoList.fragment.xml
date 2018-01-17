@@ -1,0 +1,93 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+			<!--  大屏幕2列，中等屏幕2列，手机1列（缺省）  -->
+			<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2"
+			emptySpanM="2" emptySpanL="2" columnsL="2" columnsM="2">
+				<f:content>
+					<core:Title text=" "/>
+					<Label text="单据编号" required="true" />
+					<Input value="{model_edit>/results/0/Recode}" editable="false"/>
+					<Label text="经办人"/>
+					<Input value="{model_edit>/results/0/Sname}" id="view_Edit_SNAME" editable="false"/>
+					<Label text="申请人" required="true"/>
+					<Input value="{model_edit>/results/0/SnameS}" editable="false"/>
+					<core:Title text=" "/>
+					<Label text="单据日期" required="true"/>
+					<Input  editable="false"  value="{ path: 'model_edit>/results/0/Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }" />
+					<!--<DatePicker id="view_Edit_RECEIPT_DATE" value="{model_edit>/RECEIPT_DATE}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" change="onClearValueState"-->
+					<!--liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_DATEState}" valueStateText="{model_edit>/RECEIPT_DATEValueStateText}" />-->
+					<Label text="申请公司"/>
+					<Input value="{model_edit>/results/0/Bukrs}" editable="false"/>
+					<Label text="申请人部门"/>
+					<Input value="{model_edit>/results/0/Kostl}" editable="false"/>
+					<core:Title text=" "/>
+					<Label text="申请金额" required="true"/>
+					<Input value="{model_edit>/results/0/Amountsum}" editable="false"/>
+					<Label text="利润中心"/>    <!-- TODO should be Ktext -->
+					<Input value="{model_edit>/results/0/Prctr}" editable="false"/>
+					<Label text="订单"/>    <!-- TODO should be Ktext -->
+					<Input value="{model_edit>/results/0/}" editable="false"/>					
+					<core:Title text=" "/>
+					<Label text="费用类型"/>
+					<Input value="{model_edit>/results/0/Dknm}" editable="false"/>
+					<Label text="联系方式"/>
+					<Input value="{model_edit>/results/0/Telnum}" editable="false"/>
+				</f:content>
+			</f:SimpleForm>
+			<f:SimpleForm maxContainerCols="1" class="NotesForm" editable="true" layout="ResponsiveGridLayout" 
+			labelSpanL="2" labelSpanM="2" emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1">
+				<f:content>
+					<core:Title text=" "/>
+					<Label text="费用申请说明"/>
+					<TextArea id="view_Edit_ACCOUNTFOR" growing="false" rows="3" value="{model_edit>/results/0/Accountfor}" editable="false"/>
+				</f:content>
+			</f:SimpleForm>
+			<Table items="{path: 'model_edit>/Item', sorter: { path: 'Number' } }" delete="onDeleteItem" mode="Delete" id="childtabel">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="附件" level="H2"/>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://add" press="onAddItem" type="Transparent"></Button>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="50%">
+						<Text text="附件名称"/>
+					</Column>
+					<!--<Column>-->
+					<!--	<Text text="费用项目"/>-->
+					<!--</Column>-->
+					<!--<Column>-->
+					<!--	<Text text="申请金额"/>-->
+					<!--</Column>-->
+					<!--<Column>-->
+					<!--	<Text text="辅助对象类别"/>-->
+					<!--</Column>-->
+					<!--<Column>-->
+					<!--	<Text text="辅助对象"/>-->
+					<!--</Column>-->
+					<Column>
+						<Text text="备注"/>
+					</Column>
+					<Column width="2rem">
+						<Text text=""/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<!--<Text text="{model_edit>NO}"/>-->
+							<!--<Label text="{model_edit>EINM}"/>-->
+							<!--<Label text="{model_edit>AMOUNT}"/>-->
+							<!--<Select selectedKey="{model_edit>HETYPE}" enabled="false">-->
+							<!--	<core:Item text="订单" key="01"/>-->
+							<!--	<core:Item text="WBS" key="02"/>-->
+							<!--	<core:Item text="线路" key="03"/>-->
+							<!--</Select>-->
+							<Label text="{model_edit>HELPERS}"/>
+							<Label text="{model_edit>NOTE}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+</core:FragmentDefinition>

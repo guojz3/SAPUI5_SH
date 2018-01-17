@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>费用类型}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Etdsclist" items="{path: 'model_Etdsc>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索费用类型列表}" value="{model_Etdsc>/Etdsc}" search="onSearchEtdsc"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Text text="{i18n>费用类型编码}"/>
+					</Column>
+					<Column width="70%">
+						<Text text="{i18n>费用类型名称}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedEtdsc">
+						<cells>
+							<Text text="{model_Etdsc>Etkd}"/>
+							<Text text="{model_Etdsc>Etdsc}"/> 
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmEtdsc"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelEtdscSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

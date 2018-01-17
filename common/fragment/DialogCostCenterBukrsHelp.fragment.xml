@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>利润中心}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="CostCenterlist" items="{path: 'model_CostCenter>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索利润中心列表}" value="{model_search>/Prctr}" search="onSearchCostCenterBukrs"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Text text="{i18n>利润中心编码}"/>
+					</Column>
+					<Column width="70%">
+						<Text text="{i18n>利润中心}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedCostCenterBukrs">
+						<cells>
+							<Text text="{model_CostCenter>Prctr}"/>
+							<Text text="{model_CostCenter>Ktext}"/> 
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelCostCenterSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

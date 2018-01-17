@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>车型列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Zzcxlist" items="{path: 'model_Zzcx>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索车型列表}" value="{model_search>/Zzcx}" search="onSearchZzcx"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="40%">
+						<Text text="{i18n>车型}"/>
+					</Column>
+					<Column width="60%">
+						<Text text="{i18n>描述}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedZzcx">
+						<cells>
+							<Text text="{model_Zzcx>Zzcx}"/>
+							<Text text="{model_Zzcx>Zzcxms}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmZzcx"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelZzcxSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

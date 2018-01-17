@@ -1,0 +1,79 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Panel id="Panel_hCLINFOR" headerText="单据信息" expandable="false">
+		<!--  大屏幕2列，中等屏幕2列，手机1列（缺省）  -->
+		<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+			emptySpanL="2" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title text=" "/>
+				<Label text="单据编号" required="false"/>
+				<Input id="JKD_IP_Recode" value="{path: 'Recode'}" editable="false"/>
+				<Label text="经办人" required="false"/>
+				<Input id="JKD_IP_Pernr" value="{Pernr}{=${Sname} ? '|'+ ${Sname}:''}" editable="false"/>
+				<Label text="借款人" required="false"/>
+				<MultiInput id="JKD_IP_PernrJ" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowPROPOSERHelp"
+					suggestionItemSelected="onClearValueState" tokenUpdate="onClearValueState"
+					value="{= ${PernrJ} === undefined ? '' : ' '+${PernrJ}+'|'+${SnameJ}}"/>
+				<Label text="借款金额" required="true"/>
+				<Input id="JKD_IP_Wrbtr" value="{Wrbtr}" editable="true" change="onCurrencyChange"/>
+				<Label text="本位币金额" required="false"/>
+				<Input id="JKD_IP_Dmbtr" value="{Dmbtr}" editable="false"/>
+				<Label text="付款方式" required="false"/>
+				<MultiInput id="JKD_IP_Zlsch" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowZlschTHelp"
+					suggestionItemSelected="onClearValueState" tokenUpdate="onClearValueState"
+					value="{= (${Zlsch} === undefined)||(${Zlsch} === '') ? '' : ' '+${Zlsch}+'|'+${Text2}}"/>
+				<Label text="订单" id="JKD_IP_Aufnr_label" required="false"/>
+				<MultiInput id="JKD_IP_Aufnr" showValueHelp="true" valueHelpOnly="true" liveChange="onClearValueState" valueHelpRequest="onShowAufnrHelp"
+					value="{Aufnr}{=${KtextAufnr} ? '|'+ ${KtextAufnr}:''}"/>
+				<Label text="利润中心" required="true"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="JKD_IP_Prctr" liveChange="onClearValueState"
+					valueHelpRequest="onShowCostCenterHelp" value="{= ${Prctr} === undefined ? '' : ' '+${Prctr}+'|'+${KtextPrctr}}"/>
+				<core:Title text=" "/>
+				<Label text="单据日期" required="false"/>
+				<Input id="JKD_IP_Redate" editable="false" value="{ path: 'Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+				<Label text="借款人公司" required="false"/>
+				<MultiInput id="IP_BUKRS" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowBUKRSHelp"
+					value="{Bukrs}{=${Butxt} ? '|'+ ${Butxt}:''}"/>
+				<Label text="借款人部门" required="false"/>
+				<MultiInput id="JKD_IP_Kostl" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowCostPartHelp"
+					value="{= ${Orgeh} === undefined ? '' : ' '+${Orgeh}+'|'+${OrgehText}}"/>
+				<Label text="货币" required="false"/>
+				<MultiInput id="JKD_IP_Currency" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowWaersHelp" change="onCurrencyChange"
+					value="{= ${Currency} === undefined ? '' : ' '+${Currency}+'|'+${Ktext_waers}}"/>
+				<Label text="汇率" required="false"/>
+				<Input id="JKD_IP_Kursf" value="{Kursf}" editable="false"/>
+				<Label text="附件张数" required="true"/>
+				<Input id="JKD_IP_Numpg" value="{Numpg}" editable="true"/>
+				<Label text="预计还款日期" required="true"/>
+				<DatePicker id="JKD_IP_Yjhkrq" placeholder=" " dateValue="{Yjhkrq}" valueFormat="yyyy/MM/dd" displayFormat="yyyy/MM/dd"/>
+				<Label text="联系方式" required="true"/>
+				<Input id="JKD_IP_Telnum" value="{Telnum}" liveChange="onClearValueState"/>
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm maxContainerCols="1" class="NotesForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2"
+			emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1">
+			<f:content>
+				<core:Title text=" "/>
+				<Label text="借款用途" required="true"/>
+				<TextArea id="JKD_IP_Accountfor" growing="false" rows="3" placeholder="借款" value="{Accountfor}"/>
+			</f:content>
+		</f:SimpleForm>
+		<!--  大屏幕2列，中等屏幕2列，手机1列（缺省）  -->
+		<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+			emptySpanL="2" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title text=" "/>
+				<Label text="户名" required="true"/>
+				<Input id="JKD_IP_Accountname" value="{Accountname}" editable="true"/>
+				<Label text="开户行" required="true"/>
+				<Input id="JKD_IP_Banka" value="{Banka}" editable="true"/>
+				<core:Title text=" "/>
+				<Label text="账号" required="true"/>
+				<Input id="JKD_IP_Bankn" value="{Bankn}" editable="true"/>
+				<Label text="往来业务性质" required="true"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="JKD_IP_Zzjshkdw" liveChange="onClearValueState"
+					valueHelpRequest="onShowZzjshkdwHelp" value="{= ${Zzjshkdw} === undefined ? '' : ' '+${Zzjshkdw}+'|'+${Zzjshkdwms}}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

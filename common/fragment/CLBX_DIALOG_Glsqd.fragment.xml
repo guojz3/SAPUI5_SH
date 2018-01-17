@@ -1,0 +1,53 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog id="CLBX_Dialog_glsqd" title="关联费用申请单" contentWidth="50%" contentHeight="100%">
+		<!--<customHeader>-->
+		<!--	<Toolbar>-->
+		<!--		<Title text="关联申请单" level="H2"/>-->
+		<!--		<content/>-->
+		<!--	</Toolbar>-->
+		<!--</customHeader>-->
+		<content>
+			<Table id="CLBX_dialogtable_sq" items="{ path: '/FysqSet', sorter: { path: 'Recode', descending: false } }"
+				noDataText=" " growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished"
+				includeItemInSelection="true" mode="SingleSelectLeft" modeAnimationOn="false">
+				<!--<Table id="CLBX_dialogtable_sq" items="{ path: '/FysqSet', sorter: { path: 'Recode', descending: false } }" noDataText="{worklistView>/tableNoDataText}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" includeItemInSelection="true" mode="SingleSelectLeft" modeAnimationOn="false">-->
+				<columns>
+					<Column>
+						<Text text="单据编号"/>
+					</Column>
+					<Column>
+						<Text text="单据日期"/>
+					</Column>
+					<Column>
+						<Text text="费用类型"/>
+					</Column>
+					<Column>
+						<Text text="申请金额"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="onPress">
+						<cells>
+							<Text text="{Recode}"/>
+						</cells>
+						<cells>
+							<Text text="{ path: 'Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+						</cells>
+						<cells>
+							<Text text="{Dknm}"/>
+						</cells>
+						<cells>
+							<Text text="{Amountsum}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button id="DialogSave" text="保存" width="100px" press="onDialogSaveGL"/>
+		</beginButton>
+		<endButton>
+			<Button text="取消" width="100px" id="DialogCancel" press="onDialogBackGL"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>城市}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Ctkdlist" items="{path: 'model_Ctkd>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索城市列表}" value="" search="onSearchCtkd"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%" >
+						<Text text="{i18n>城市代码}"/>
+					</Column>
+					<Column width="70%" >
+						<Text text="{i18n>城市名称}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedCtkd">
+						<cells>
+							<Text text="{model_Ctkd>Ctkd}"/>
+						</cells>
+						<cells>
+							<Text text="{model_Ctkd>Ctnm}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		
+		<beginButton>
+			<Button text="{i18n>确定}" press="onCancelCtkdSelect"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelCtkdSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

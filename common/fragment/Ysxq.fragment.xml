@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Table items="{path:'item_data>/results'}" id="ysxqitemtabel">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="预算信息" level="H2"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column >
+				<Text text="序号"/>
+			</Column>
+			<Column>
+				<Text text="预算科目"/>
+			</Column>
+			<Column>
+				<Text text="预算科目描述"/>
+			</Column>
+			<Column>
+				<Text text="基金中心"/>
+			</Column>
+			<Column>
+				<Text text="基金中心描述"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="预算金额"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="占用金额"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="可用预算"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="本次金额"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text visible="true" text="{item_data>Num}"/>
+					<Text visible="true" text="{item_data>Rcmmtitem}"/>
+					<Text visible="true" text="{item_data>RcmmtitemT}"/>
+					<Text visible="true" text="{item_data>Rfundsctr}"/>
+					<Text visible="true" text="{item_data>RfundsctrT}"/>
+					<Text visible="true" text="{item_data>Ysxdje}"/>
+					<Text visible="true" text="{item_data>Yszyje}"/>
+					<Text visible="true" text="{item_data>Yskyje}"/>
+					<Text visible="true" text="{item_data>Bcje}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

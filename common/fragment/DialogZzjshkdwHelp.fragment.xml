@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>往来业务性质列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Zzjshkdwlist" items="{path: 'model_Zzjshkdw>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索往来业务性质列表}" value="{model_search>/Zzjshkdw}" search="onSearchZzjshkdw"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="40%">
+						<Text text="{i18n>往来业务性质}"/>
+					</Column>
+					<Column width="60%">
+						<Text text="{i18n>描述}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedZzjshkdw">
+						<cells>
+							<Text text="{model_Zzjshkdw>Zzjshkdw}"/>
+							<Text text="{model_Zzjshkdw>Zzjshkdwms}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmZzjshkdw"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelZzjshkdwSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

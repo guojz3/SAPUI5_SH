@@ -1,0 +1,93 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<!--  大屏幕2列，中等屏幕2列，手机1列（缺省）  -->
+	<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+		emptySpanL="2" columnsL="2" columnsM="2">
+		<f:content>
+			<core:Title text=" "/>
+			<Label text="单据编号" required="true"/>
+			<Input id="view_Edit_RECEIPT_CODE" value="{path: 'model_edit>/results/0/Recode'}" editable="false" liveChange="onClearValueState"
+				valueState="{model_edit>/RECEIPT_CODEValueState}" valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+			<Label text="经办人"/>
+			<Input value="{model_edit>/results/0/Sname}" id="view_Edit_SNAME" editable="false"/>
+			<Label text="申请人" required="true"/>
+			<MultiInput id="view_Edit_PROPOSER" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowPROPOSERHelp"
+				value=" {model_edit>/results/0/PernrS}{=${model_edit>/results/0/SnameS} ? '|'+ ${model_edit>/results/0/SnameS}:''}" items="{model_edit>/PROPOSERNumber'}"
+				valueState="{model_edit>/PROPOSERValueState}" valueStateText="{model_edit>/PROPOSERValueStateText}" editable="{model_edit>/results/0/able}"/>
+			<core:Title text=" "/>
+			<Label text="单据日期" required="true"/>
+			<Input editable="false" value="{ path: 'model_edit>/results/0/Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+			<Label text="申请公司"/>
+			<Input value="{model_edit>/results/0/Bukrs}{=${model_edit>/results/0/Butxt} ? '|'+ ${model_edit>/results/0/Butxt}:''}" editable="false"/>
+			<Label text="申请人部门"/>
+			<MultiInput id="view_Edit_PROPOSER_KOSTL" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowCostPartHelp"
+				value=" {model_edit>/results/0/Kostl}{=${model_edit>/results/0/Ktext} ? '|'+ ${model_edit>/results/0/Ktext}:''}" liveChange="onClearValueState" editable="{model_edit>/results/0/able}"
+				valueState="{model_edit>/PROPOSER_KOSTLState}" valueStateText="{model_edit>/PROPOSER_KOSTLStateText}"></MultiInput>
+			<core:Title text=" "/>
+			<Label text="申请金额" required="true"/>
+			<Input value="{path: 'model_edit>/results/0/Amountsum', type : 'sap.ui.model.type.Float', constraints : { minimum: 0.0 } }" id="view_Edit_AMOUNTSUM"
+			editable="{model_edit>/results/0/able}"	valueState="{model_edit>/AMOUNTSUMState}" valueStateText="{model_edit>/AMOUNTSUMStateText}" change="onTwoAmountsum"/>
+			<Label text="利润中心"/>
+			<!-- TODO should be Ktext -->
+			<MultiInput showValueHelp="true" valueHelpOnly="true" id="view_Edit_PROPOSER_PRCTR" liveChange="onClearValueState"
+				valueHelpRequest="onShowCostCenterHelp" value=" {model_edit>/results/0/Prctr}{=${model_edit>/results/0/Ktext_prctr} ? '|'+ ${model_edit>/results/0/Ktext_prctr}:''}"
+				items="{model_edit>/PROPOSER_PRCTRSNumber'}" valueState="{model_edit>/PROPOSER_PRCTRState}" editable="{model_edit>/results/0/able}"
+				valueStateText="{model_edit>/PROPOSER_PRCTRStateText}"></MultiInput>
+			<Label text="订单"/>
+			<MultiInput showValueHelp="true" valueHelpOnly="true" id="view_Edit_AUFNR" liveChange="onClearValueState"
+				valueHelpRequest="onShowAufnrHelp" value=" {model_edit>/results/0/Aufnr}{=${model_edit>/results/0/Ktext_aufnr} ? '|'+ ${model_edit>/results/0/Ktext_aufnr}:''}" items="{model_edit>/AUFNRNumber'}"
+				valueState="{model_edit>/AUFNRState}" valueStateText="{model_edit>/AUFNRStateText}" editable="{model_edit>/results/0/able}"></MultiInput>
+			<core:Title text=" "/>
+			<Label text="费用类型"/>
+			<MultiInput showValueHelp="true" valueHelpOnly="true" id="view_Edit_ETDSC" valueHelpRequest="onShowEtdscHelp" editable="{model_edit>/results/0/able}"
+			value=" {model_edit>/results/0/Etnm}" valueState="{model_edit>/ETDSCState}" valueStateText="{model_edit>/ETDSCStateText}"></MultiInput>
+			<!--<Input value="{model_edit>/ETDSC}" editable="false" id="view_Edit_ETNAME"  liveChange="onClearValueState"-->
+			<!--       valueState="{model_edit>/ETNAMEState}" valueStateText="{model_edit>/ETNAMEStateText}"/>-->
+			<Label text="联系方式"/>
+			<Input value="{model_edit>/results/0/Telnum}" id="view_Edit_TELNUM" liveChange="onClearValueState" valueState="{model_edit>/TELNUMState}"
+				valueStateText="{model_edit>/TELNUMStateText}" editable="{model_edit>/results/0/able}"/>
+		</f:content>
+	</f:SimpleForm>
+	<f:SimpleForm maxContainerCols="1" class="NotesForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2"
+		emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1">
+		<f:content>
+			<core:Title text=" "/>
+			<Label text="费用用途" required="true"/>
+			<TextArea id="view_Edit_ACCOUNTFOR" growing="false" rows="3" placeholder="关于XX因XX事的费用申请" value="{model_edit>/results/0/Accountfor}"
+				valueState="{model_edit>/ACCOUNTFORState}" valueStateText="{model_edit>/ACCOUNTFORStateText}" editable="{model_edit>/results/0/able}"/>
+		</f:content>
+	</f:SimpleForm>
+	<Table items="{path: 'model_edit>/Item', sorter: { path: 'Number' } }" delete="onDeleteItem" mode="Delete" id="childtabel">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="附件" level="H2"/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://add" press="onAddItem" type="Transparent"></Button>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="50%">
+				<Text text="附件名称"/>
+			</Column>
+			<Column>
+				<Text text="备注"/>
+			</Column>
+			<Column width="2rem">
+				<Text text=""/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Label text="{model_edit>HELPERS}"/>
+					<Label text="{model_edit>NOTE}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	<Toolbar>
+		<ToolbarSpacer/>
+		<Button id="view_Edit_save" text="保存" type="Accept" width="80px" press="savePressed"/>
+		<Button id="view_Edit_submit" text="提交" type="Accept" width="80px" press="submitPressed"/>
+	</Toolbar>
+</core:FragmentDefinition>

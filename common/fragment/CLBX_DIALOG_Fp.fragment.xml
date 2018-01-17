@@ -1,0 +1,81 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog id="CLBX_Dialog_Fp" title="选择增值税发票" contentWidth="70%" contentHeight="100%">
+		<content>
+			<Table id="CLBX_dialogtable_fp" items="{ path: '/ZzspSet'}" noDataText="{worklistView>/tableNoDataText}" growing="true"
+				growingScrollToLoad="true" updateFinished="onUpdateFinished" includeItemInSelection="true" mode="MultiSelect" modeAnimationOn="false">
+				<columns>
+					<Column>
+						<Text text="发票类型"/>
+					</Column>
+					<Column>
+						<Text text="发票号码"/>
+					</Column>
+					<Column>
+						<Text text="发票代码"/>
+					</Column>
+					<Column hAlign="End">
+						<Text text="不含税金额"/>
+					</Column>
+					<Column hAlign="End">
+						<Text text="税额"/>
+					</Column>
+					<Column hAlign="End">
+						<Text text="含税金额"/>
+					</Column>
+					<Column>
+						<Text text="开票日期"/>
+					</Column>
+					<Column>
+						<Text text="开票单位"/>
+					</Column>
+					<Column>
+						<Text text="验证状态"/>
+					</Column>
+					<Column>
+						<Text text="图片"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="onPress">
+						<cells>
+							<Text text="{path: 'Intype', formatter: '.formatter.IntypeString'}"/>
+						</cells>
+						<cells>
+							<Text text="{Inno}"/>
+						</cells>
+						<cells>
+							<Text text="{Incode}"/>
+						</cells>
+						<cells>
+							<Text text="{path: 'Awotax', formatter: '.formatter.FloatFormat'}" textAlign="Right"/>
+						</cells>
+						<cells>
+							<Text text="{path: 'Taxamount', formatter: '.formatter.FloatFormat'}" textAlign="Right"/>
+						</cells>
+						<cells>
+							<Text text="{path: 'Awtax', formatter: '.formatter.FloatFormat'}" textAlign="Right"/>
+						</cells>
+						<cells>
+							<Text text="{ path: 'Pddate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+						</cells>
+						<cells>
+							<Text text="{Sellername}"/>
+						</cells>
+						<cells>
+							<Text text="{Vtext}"/>
+						</cells>
+						<cells>
+							<Link text="点击链接" href="{Imgurl}" target="_blank"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button id="DialogSavefp" text="保存" press="onDialogSaveFp"/>
+		</beginButton>
+		<endButton>
+			<Button text="取消" id="DialogCancelfp" press="onDialogBackFp"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

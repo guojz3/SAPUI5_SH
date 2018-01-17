@@ -1,0 +1,78 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<Panel id="Panel_h" headerText="单据信息" expandable="false">
+		<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+			emptySpanL="2" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="单据编号"/>
+				<Input id="IP_RECEIPT_CODE" value="{Recode}" editable="false" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="经办人"/>
+				<Input id="IP_PERNR" value="{Pernr}{=${Sname} ? '|'+ ${Sname}:''}" editable="false" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="费用类型" required="true"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_ETNAME" valueHelpRequest="onShowEtdscHelp"
+					value=" {Etkd}{=${Etnm} ? '|'+ ${Etnm}:''}"/>
+				<core:Title text=""/>
+				<Label text="单据日期"/>
+				<Input id="IP_REDATE" editable="false" value="{ path: 'Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+				<core:Title text=""/>
+				<Label text="报销人" required="true"/>
+				<MultiInput id="IP_PERNR_B" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowPROPOSERHelp"
+					value=" {PernrB}{=${SnameB} ? '|'+ ${SnameB}:''}"/>
+				<core:Title text=""/>
+				<Label text="报销金额"/>
+				<Input id="IP_WRBTR" value="{Wrbtr}" editable="false" liveChange="onClearValueState" change="onTwoAmountsum"/>
+				<core:Title text=""/>
+				<Label text="报销人公司"/>
+				<MultiInput id="IP_BUKRS" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowBUKRS"
+					value="{Bukrs}{=${Butxt} ? '|'+ ${Butxt}:''}"/>
+				<!--<Input id="IP_BUKRS" value="{Bukrs}{=${Butxt} ? '|'+ ${Butxt}:''}" editable="false" liveChange="onClearValueState"/>-->
+				<core:Title text=""/>
+				<Label text="本次核销金额"/>
+				<Input value="{Bchxje}" id="IP_BCHXJE" editable="false" change="onTwoAmountsum"/>
+				<core:Title text=""/>
+				<Label text="费用所属部门"/>
+				<MultiInput id="IP_Orgeh" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowCostPartHelp"
+					value=" {Orgeh}{=${OrgehText} ? '|'+ ${OrgehText}:''}" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="本次支付金额"/>
+				<Input id="IP_BCZFJE" value="{Bczfje}" editable="false" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"/>
+				<core:Title text=""/>
+				<Label text="利润中心" required="true"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_PRCTR" liveChange="onClearValueState" valueHelpRequest="onShowCostCenterHelp"
+					value=" {Prctr}{=${PrctrKtext} ? '|'+ ${PrctrKtext}:''}"/>
+				<core:Title text=""/>
+				<Label text="付款方式" required="true"/>
+				<MultiInput id="IP_ZLSCH" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowZlschTHelp"
+					suggestionItemSelected="onClearValueState" tokenUpdate="onClearValueState"
+					value="{= ${Zlsch} === undefined ? '' : ' '+${Zlsch}+'|'+${TextZlsch}}"/>
+				<core:Title text=""/>
+				<Label text="联系方式" required="true"/>
+				<Input value="{Telnum}" id="IP_TELNUM" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="收款方" required="true"/>
+				<Input id="IP_ACCOUNTNAME" value="{Accountname}" editable="true" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="附件张数" required="true"/>
+				<Input id="IP_FJZS" value="{Fjzs}" editable="true" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="收款银行" required="true"/>
+				<Input id="IP_BANKA" value="{Banka}" editable="true" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="费用事由" required="true"/>
+				<Input id="IP_NOTE" value="{Note}" editable="true" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="收款账号" required="true"/>
+				<Input id="IP_BANKN" value="{Bankn}" editable="true" liveChange="onClearValueState"/>
+				<core:Title text=""/>
+				<Label text="同行人员"/>
+				<Input id="IP_TXRY" value="{Txry}" editable="true" liveChange="onClearValueState"  visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}"/>
+				<core:Title text=""/>
+				<Label text="备注"/>
+				<Input id="IP_TSSX" value="{Tssx}" editable="true" liveChange="onClearValueState"  visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

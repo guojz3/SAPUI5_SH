@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>付款方式}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="zlschlist" items="{ path: '/T042ZTSet', sorter: { path: 'Zlsch', descending: false } }">
+				
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索付款方式}" value="{model_search>/Zlsch}" search="onSearchZlsch"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Text text="{i18n>编码}"/>
+					</Column>
+					<Column width="70%">
+						<Text text="{i18n>付款方式}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedZlsch">
+						<cells>
+							<Text text="{Zlsch}"/>
+							<Text text="{Text2}"/> 
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelZlschSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>交通工具}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Vektplist" items="{path: 'model_Vektp>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索交通工具列表}" value="" search="onSearchVektp"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="40%">
+						<Text text="{i18n>交通工具类型}"/>
+					</Column>
+					<Column width="60%">
+						<Text text="{i18n>交通工具名称}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedVektp">
+						<cells>
+							<Text text="{model_Vektp>Vektp}"/>
+						</cells>
+						<cells>
+							<Text text="{model_Vektp>Veknm}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		
+		<beginButton>
+			<Button text="{i18n>确定}" press="onCancelVektpSelect"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelVektpSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

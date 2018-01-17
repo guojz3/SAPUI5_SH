@@ -1,0 +1,225 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<Panel id="Panel_hCLINFOR" headerText="单据信息" expandable="false">
+		<headerToolbar>
+			<OverflowToolbar width="100%" id="__toolbar3">
+				<ToolbarSpacer/>
+				<Button text="保存" id="bt_homesave" icon="sap-icon://save" type="Accept" press="savePressed"/>
+				<!--<Button text="取消" id="bt_homecancel" icon="sap-icon://sys-cancel" type="Accept" press="cancelPressed"/>-->
+				<Button text="返回" id="bt_homebackl" icon="sap-icon://sys-cancel" type="Accept" press="onNavBack"/>
+			</OverflowToolbar>
+		</headerToolbar>
+	</Panel>
+	<Panel id="Panel_hJCXX" headerText="基础信息" expandable="false">
+		<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+			emptySpanL="2" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="费用项目" required="true"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Einm" valueHelpRequest="onShowEinmHelp"
+					value="{Eikd}{=${Einm} ? '|'+ ${Einm}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<core:Title text=""/>
+				<Label text="是否专票" required="true"/>
+				<RadioButtonGroup id="IP_RBGselect" columns="2" width="100%" select="changeselect"
+					selectedIndex="{= (${Sfzp} === undefined)||(${Sfzp} === '') ? 1 : 0}">
+					<buttons>
+						<RadioButton id="RB1-1" text="{i18n>是}"/>
+						<RadioButton id="RB1-2" text="{i18n>否}"/>
+					</buttons>
+				</RadioButtonGroup>
+				<core:Title text=""/>
+				<Label text="票据张数" required="true"/>
+				<Input id="IP_Pjzs" value="{Pjzs}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<core:Title text=""/>
+				<Label text="税码" required="true" id="IP_Mwskz_label"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Mwskz" valueHelpRequest="onShowMwskzHelp"
+					value="{Mwskz}{=${Mwskz_Text1}?'|'+${Mwskz_Text1}:''}" enabled="{= (${Sfzp} === undefined)||(${Sfzp} === '') ? false : true}"
+					valueState="{model_edit>/RECEIPT_CODEValueState}" valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<core:Title text=""/>
+				<Label text="费用金额" required="true"/>
+				<Input id="IP_Wrbtr" value="{Wrbtr}" editable="true" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" change="ChangeWrbtr"/>
+				<core:Title text=""/>
+				<Label text="发票不含税金额" required="true" id="IP_Netpr_label"/>
+				<Input id="IP_Netpr" value="{Netpr}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" change="ChangeNetpr"
+					enabled="{= (${Sfzp} === undefined)||(${Sfzp} === '') ? false : true}"/>
+				<core:Title text=""/>
+				<Label text="发票金额" required="true" id="IP_Zfpje_label"/>
+				<Input id="IP_Zfpje" value="{Zfpje}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" change="changeZfpje"/>
+				<core:Title text=""/>
+				<Label text="发票税额" required="true" id="IP_Wmwst_label"/>
+				<Input id="IP_Wmwst" value="{Wmwst}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					enabled="{= (${Sfzp} === undefined)||(${Sfzp} === '') ? false : true}" valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"
+					change="changeWmwst"/>
+				<core:Title text=""/>
+				<Label text="说明"/>
+				<Input id="IP_Note" value="{Note}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+	<Panel id="Panel_hCLXX" expandable="false" headerText="差旅信息" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+		<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+			emptySpanL="2" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title text=""/>
+				<Label text="交通工具"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Vektp" valueHelpRequest="onShowVektpHelp"
+					value="{Vektp}{=${Vektp_Veknm}?'|'+${Vektp_Veknm}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<Label text="舱位席别"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Sps" valueHelpRequest="onShowSpsHelp"
+					value="{Sps}{=${Sps_Spsdsc}?'|'+${Sps_Spsdsc}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<Label text="住宿城市"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Ctkd" valueHelpRequest="onShowCtkdHelp"
+					value="{Ctkd}{=${Ctkd_Ctnm}?'|'+${Ctkd_Ctnm}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<Label text="出差天数"/>
+				<Input id="IP_ICcts" value="{Ccts}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<core:Title text=""/>
+				<Label text="出发日期"/>
+				<DatePicker change="setDate" id="IP_Cfrq" placeholder=" " dateValue="{Cfrq}" valueFormat="yyyy.MM.dd" displayFormat="yyyy/MM/dd"/>
+				<Label text="出发地点"/>
+				<Input id="IP_Ctkd1" placeholder=" " value="{Ctkd1}" editable="true" liveChange="onClearValueState"
+					valueState="{model_edit>/RECEIPT_CODEValueState}" valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<Label text="到达日期"/>
+				<DatePicker change="setDate" id="IP_Ddrq" placeholder=" " dateValue="{Ddrq}" valueFormat="yyyy.MM.dd" displayFormat="yyyy/MM/dd"/>
+				<Label text="到达地点"/>
+				<Input id="IP_Ctkd2" value="{Ctkd2}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"
+					valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+	<Panel headerText="辅助核算信息" expandable="false">
+		<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+			emptySpanL="2" columnsL="2" columnsM="2" id="Fuzhuhsxx">
+			<f:content>
+				<!--<core:Title text=""/>-->
+				<!--<Label text="成本中心" required="true"/>-->
+				<!--<MultiInput id="IP_KOSTL" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowCostCenteredHelp" value=" {Kostl}{=${Ktext} ? '|'+ ${Ktext}:''}"-->
+				<!--	liveChange="onClearValueState"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="订单" id="IP_Aufnr_label" required="false"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Aufnr" valueHelpRequest="onShowAufnrClbxHelp"-->
+				<!--	value="{Aufnr}{=${Aufnr_Ktext}?'|'+${Aufnr_Ktext}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="地区类别" id="IP_Dqlb_label" required="false"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Dqlb" valueHelpRequest="onShowDqlbHelp"-->
+				<!--	value="{Dqlb}{=${Zzdqlbms}?'|'+${Zzdqlbms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="WBS元素"/>-->
+				<!--<Input id="IP_Posid" value="{Posid}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="功能范围"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Fkber" valueHelpRequest="onShowFkberHelp"-->
+				<!--	value="{Fkber}{=${Fkber_Fkbtx}?'|'+${Fkber_Fkbtx}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Fkber" value="{Fkber}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="车型"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzcx" valueHelpRequest="onShowZzcxHelp"-->
+				<!--	value="{Zzcx}{=${Zzcx_Zzcxms}?'|'+${Zzcx_Zzcxms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzcx" value="{Zzcx}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="车号"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzch" valueHelpRequest="onShowZzchHelp"-->
+				<!--	value="{Zzch}{=${Zzch_Zzchms}?'|'+${Zzch_Zzchms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzch" value="{Zzch}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>	-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="分线核算"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzfxcb" valueHelpRequest="onShowZzfxcbHelp"-->
+				<!--	value="{Zzfxcb}{=${Zzfxcb_Zzfxcbms}?'|'+${Zzfxcb_Zzfxcbms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzfxcb" value="{Zzfxcb}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label id="IP_Zzfzhs01_label" text="辅助核算01"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzfzhs01" valueHelpRequest="onShowZzfzhs01Help"-->
+				<!--	value="{Zzfzhs01}{=${Zzfzhs01_Zzfzhs01ms}?'|'+${Zzfzhs01_Zzfzhs01ms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<Input id="IP_Zzfzhs01" value="{Zzfzhs01}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="辅助核算02"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzfzhs02" valueHelpRequest="onShowZzfzhs02Help"-->
+				<!--	value="{Zzfzhs02}{=${Zzfzhs02_Zzfzhs02ms}?'|'+${Zzfzhs02_Zzfzhs02ms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzfzhs02" value="{Zzfzhs02}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="辅助核算03"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzfzhs03" valueHelpRequest="onShowZzfzhs03Help"-->
+				<!--	value="{Zzfzhs03}{=${Zzfzhs03_Zzfzhs03ms}?'|'+${Zzfzhs03_Zzfzhs03ms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzfzhs03" value="{Zzfzhs03}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>	-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="辅助核算04"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzfzhs04" valueHelpRequest="onShowZzfzhs04Help"-->
+				<!--	value="{Zzfzhs04}{=${Zzfzhs04_Zzfzhs04ms}?'|'+${Zzfzhs04_Zzfzhs04ms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzfzhs04" value="{Zzfzhs04}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="辅助核算05"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzfzhs05" valueHelpRequest="onShowZzfzhs05Help"-->
+				<!--	value="{Zzfzhs05}{=${Zzfzhs05_Zzfzhs05ms}?'|'+${Zzfzhs05_Zzfzhs05ms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzfzhs05" value="{Zzfzhs05}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="辅助核算类别"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzfzhslb" valueHelpRequest="onShowZzfzhslbHelp"-->
+				<!--	value="{Zzfzhslb}{=${Zzfzhslb_Zzfzhslbms}?'|'+${Zzfzhslb_Zzfzhslbms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzfzhslb" value="{Zzfzhslb}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="辅助核算内容"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzfzhsnr" valueHelpRequest="onShowZzfzhsnrHelp"-->
+				<!--	value="{Zzfzhsnr}{=${Zzfzhsnr_Zzfzhsnrms}?'|'+${Zzfzhsnr_Zzfzhsnrms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzfzhsnr" value="{Zzfzhsnr}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>	-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="业务类型"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzghjh" valueHelpRequest="onShowZzghjhHelp"-->
+				<!--	value="{Zzghjh}{=${Zzghjh_Zzghjhms}?'|'+${Zzghjh_Zzghjhms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzghjh" value="{Zzghjh}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="合同编号"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzhth" valueHelpRequest="onShowZzhtbhHelp"-->
+				<!--	value="{Zzhth}{=${Zzhtbh_Zzhtbhms}?'|'+${Zzhtbh_Zzhtbhms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzhth" value="{Zzhth}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+				<!--<core:Title text=""/>-->
+				<!--<Label text="往来业务性质"/>-->
+				<!--<MultiInput showValueHelp="true" valueHelpOnly="true" id="IP_Zzjshkdw" valueHelpRequest="onShowZzjshkdwHelp"-->
+				<!--	value="{Zzjshkdw}{=${Zzjshkdw_Zzjshkdwms}?'|'+${Zzjshkdw_Zzjshkdwms}:''}" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>-->
+				<!--<Input id="IP_Zzjshkdw" value="{Zzjshkdw}" editable="true" liveChange="onClearValueState" valueState="{model_edit>/RECEIPT_CODEValueState}"-->
+				<!--	valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>-->
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+	<Panel id="Panel_hBXBZ" headerText="报销标准" expandable="false" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+		<Image src="{model_show>/url}" densityAware="false" width="{model_show>/width}"></Image>
+	</Panel>
+</core:FragmentDefinition>

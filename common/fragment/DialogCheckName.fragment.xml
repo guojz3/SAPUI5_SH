@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>审批人列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table  items="{path: 'model_CHECK>/results' }"  mode="MultiSelect" id="table1">
+				<!--<Table class="sapUiSizeCompact myCustomSize" mode="MultiSelect" items="{model_data>/results}" id="table1">-->
+				<!--<headerToolbar>-->
+				<!--	<Toolbar>-->
+				<!--		<SearchField placeholder="{i18n>搜索申请人列表}" value="{model_search>/PROPOSE}" search="onSearchPROPOSE"/>-->
+				<!--	</Toolbar>-->
+				<!--</headerToolbar>-->
+				<columns>
+					<Column width="50%">
+						<Text text="{i18n>用户名}"/>
+					</Column>	
+					<Column width="50%">
+						<Text text="{i18n>员工姓名}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="tablePressed">
+						<cells>
+							<Text text="{model_CHECK>Username}"/>
+							<Text text="{model_CHECK>Empname}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmCheckName"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelCheckName"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

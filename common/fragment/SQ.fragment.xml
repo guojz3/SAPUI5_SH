@@ -1,0 +1,67 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Panel id="Panel_hCLINFOR" headerText="单据信息" expandable="false">
+		<!--  大屏幕2列，中等屏幕2列，手机1列（缺省）  -->
+		<f:SimpleForm class="headerForm noPaddingTop noPaddingBottom" editable="true" layout="ResponsiveGridLayout" labelSpanM="2" emptySpanM="2"
+			emptySpanL="2" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title text=" "/>
+				<Label text="单据编号" required="true"/>
+				<Input id="view_Edit_RECEIPT_CODE" value="{Recode}" editable="false" liveChange="onClearValueState"
+					valueState="{model_edit>/RECEIPT_CODEValueState}" valueStateText="{model_edit>/RECEIPT_CODEValueStateText}"/>
+				<Label text="经办人"/>
+				<Input value="{Pernr}{=${Sname} ? '|'+ ${Sname}:''}" id="view_Edit_SNAME" editable="false"/>
+				<Label text="申请人" required="true"/>
+				<MultiInput id="view_Edit_PROPOSER" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowPROPOSERHelp"
+					value="{= ${PernrS} === undefined ? '' : ' '+${PernrS}+'|'+${SnameS}}" items="{model_edit>/PROPOSERNumber'}"
+					valueState="{model_edit>/PROPOSERValueState}" valueStateText="{model_edit>/PROPOSERValueStateText}"/>
+				<core:Title text=" "/>
+				<Label text="单据日期" required="true"/>
+				<Input id="view_Edit_REDATE" editable="false"
+					value="{ path: 'Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+				<Label text="申请公司" required="true"/>
+				<MultiInput id="IP_BUKRS" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowBUKRS"
+					value="{Bukrs}{=${Butxt} ? '|'+ ${Butxt}:''}"/>
+				<!--<Input id="view_Edit_BUTXT" value="{Bukrs}{=${Butxt} ? '|'+ ${Butxt}:''}"/>-->
+				<Label text="申请人部门" required="true"/>
+				<MultiInput id="view_Edit_PROPOSER_KOSTL" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowCostPartHelp"
+					value="{= ${OrgehText} === undefined ? '' : ' '+${Orgeh}+'|'+${OrgehText}}" liveChange="onClearValueState"
+					valueState="{model_edit>/PROPOSER_KOSTLState}" valueStateText="{model_edit>/PROPOSER_KOSTLStateText}"></MultiInput>
+				<core:Title text=" "/>
+				<Label text="申请金额" required="true"/>
+				<Input id="view_Edit_AMOUNTSUM" value="{Amountsum}" valueState="{model_edit>/AMOUNTSUMState}"
+					valueStateText="{model_edit>/AMOUNTSUMStateText}" change="onTwoAmountsum"/>
+				<Label text="利润中心" required="true"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="view_Edit_PROPOSER_PRCTR" liveChange="onClearValueState"
+					valueHelpRequest="onShowCostCenterHelp" value="{= ${Prctr} === undefined ? '' : ' '+${Prctr}+'|'+${KtextPrctr}}"
+					items="{model_edit>/PROPOSER_PRCTRSNumber'}" valueState="{model_edit>/PROPOSER_PRCTRState}"
+					valueStateText="{model_edit>/PROPOSER_PRCTRStateText}"></MultiInput>
+				<Label text="订单" id="FYSQ_IP_Aufnr_label" required="false"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="view_Edit_AUFNR" liveChange="onClearValueState" valueHelpRequest="onShowAufnrHelp"
+					value="{Aufnr}{=${KtextAufnr} ? '|'+ ${KtextAufnr}:''}" items="{model_edit>/AUFNRNumber'}"
+					valueState="{model_edit>/AUFNRState}" valueStateText="{model_edit>/AUFNRStateText}"></MultiInput>
+				<core:Title text=" "/>
+				<Label text="费用类型" required="true"/>
+				<MultiInput showValueHelp="true" valueHelpOnly="true" id="view_Edit_ETDSC" valueHelpRequest="onShowEtdscHelp"
+					value=" {Etkd}{=${Etnm} ? '|'+ ${Etnm}:''}" valueState="{model_edit>/ETDSCState}" valueStateText="{model_edit>/ETDSCStateText}"></MultiInput>
+				<Label text="联系方式" required="true"/>
+				<Input value="{Telnum}" id="view_Edit_TELNUM" liveChange="onClearValueState" valueState="{model_edit>/TELNUMState}"
+					valueStateText="{model_edit>/TELNUMStateText}"/>
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm maxContainerCols="1" class="NotesForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2"
+			emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1">
+			<f:content>
+				<core:Title text=" "/>
+				<Label text="费用用途." required="true"/>
+				<TextArea id="view_Edit_ACCOUNTFOR" growing="false" rows="3" placeholder="费用用途" value="{Accountfor}"
+					valueState="{model_edit>/ACCOUNTFORState}" valueStateText="{model_edit>/ACCOUNTFORStateText}"/>
+			</f:content>
+		</f:SimpleForm>
+	</Panel>
+	<!--<Toolbar>-->
+	<!--	<ToolbarSpacer/>-->
+	<!--	<Button id="view_Edit_save" text="保存" type="Accept" width="80px" press="savePressed"/>-->
+	<!--	<Button id="view_Edit_submit" text="提交" type="Accept" width="80px" press="submitPressed"/>-->
+	<!--</Toolbar>-->
+</core:FragmentDefinition>

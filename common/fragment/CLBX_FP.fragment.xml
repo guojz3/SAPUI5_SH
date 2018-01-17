@@ -1,0 +1,64 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<Toolbar>
+		<Title id="tableHeader_fp" text="增值税发票"/>
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://add" press="onFp" type="Transparent" id="CLBX_FP_ONBUTTON"/>
+		<Button icon="sap-icon://delete" press="onDeleteFp" type="Transparent" id="CLBX_FP_ONDELETE"/>
+	</Toolbar>
+	<Table id="table_fp" items="{ path: 'header_to_zzsp_r' }" mode="MultiSelect" noDataText=" " growing="true" growingScrollToLoad="true"
+		updateFinished="onUpdateFinishedfp">
+		<columns>
+			<Column id="nameColumn_fp">
+				<Text text="序号" id="nameColumnTitle_fp"/>
+				<footer>
+					<Text text="合计:" id="nameColumn_fp_foot"/>
+				</footer>
+			</Column>
+			<Column id="nameColumn_fp2">
+				<Text text="发票号码" id="nameColumnTitle_fp2"/>
+			</Column>
+			<Column id="nameColumn_fp3">
+				<Text text="发票类型" id="nameColumnTitle_fp3"/>
+			</Column>
+			<Column id="nameColumn_fp4">
+				<Text text="发票代码" id="nameColumnTitle_fp4"/>
+			</Column>
+			<Column id="nameColumn_fp5" hAlign="End">
+				<Text text="不含税金额" id="nameColumnTitle_fp5"/>
+				<footer>
+					<Text text="{path: 'fphjmodel>/bhxje', formatter: '.formatter.FloatFormat'}" id="nameColumn_fp5_foot"/>
+				</footer>
+			</Column>
+			<Column id="nameColumn_fp6" hAlign="End">
+				<Text text="税额" id="nameColumnTitle_fp6"/>
+				<footer>
+					<Text text="{path: 'fphjmodel>/bhxse', formatter: '.formatter.FloatFormat'}" id="nameColumn_fp6_foot"/>
+				</footer>
+			</Column>
+			<Column id="nameColumn_fp7" hAlign="End">
+				<Text text="含税金额" id="nameColumnTitle_fp7"/>
+				<footer>
+					<Text text="{path: 'fphjmodel>/hsje', formatter: '.formatter.FloatFormat'}" id="nameColumn_fp7_foot"/>
+				</footer>
+			</Column>
+			<Column id="nameColumn_fp8">
+				<Text text="图片" id="nameColumnTitle_fp8"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Active" id="table_item_fp">
+				<cells>
+					<Text text="{Inno}"/>
+					<Text text="{Inno}"/>
+					<Text text="{path: 'Intype', formatter: '.formatter.IntypeString'}"/>
+					<Text text="{Incode}"/>
+					<Text text="{path: 'Awotax', formatter: '.formatter.FloatFormat'}" textAlign="Right"/>
+					<Text text="{path: 'Taxamount', formatter: '.formatter.FloatFormat'}" textAlign="Right"/>
+					<Text text="{path: 'Awtax', formatter: '.formatter.FloatFormat'}" textAlign="Right"/>
+					<Link text="点击链接" href="{Imgurl}" target="_blank"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

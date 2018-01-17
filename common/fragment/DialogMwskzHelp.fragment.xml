@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>税码}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Mwskzlist" items="{path: 'model_Mwskz>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索税码列表}" value="" search="onSearchMwskz"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Text text="{i18n>税码}"/>
+					</Column>
+					<Column width="70%">
+						<Text text="{i18n>税码名称}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedMwskz">
+						<cells>
+							<Text text="{model_Mwskz>Mwskz}"/>
+						</cells>
+						<cells>
+							<Text text="{model_Mwskz>Text1}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		
+		<beginButton>
+			<Button text="{i18n>确定}" press="onCancelMwskzSelect"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelMwskzSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

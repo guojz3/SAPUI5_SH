@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>部门}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Partlist" items="{path: 'model_PROPOSER_KOSTL>/results'}">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索部门列表}" value="{model_search>/PROPOSER_KOSTL}" search="onSearchPROPOSER_KOSTL"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Text text="{i18n>部门}"/>
+					</Column>
+					<Column width="70%">
+						<Text text="{i18n>部门描述}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedPROPOSER_KOSTL">
+						<cells>
+							<Text text="{model_PROPOSER_KOSTL>Orgeh}"/>
+						</cells>
+						<cells>
+							<Text text="{model_PROPOSER_KOSTL>OrgehText}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmPROPOSER_KOSTL"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelPartSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

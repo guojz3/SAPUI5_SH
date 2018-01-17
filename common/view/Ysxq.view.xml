@@ -1,0 +1,4 @@
+<mvc:View controllerName="sh.bz.common.controller.Ysxq" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<core:Fragment fragmentName="sh.bz.common.fragment.Ysxq" type="XML"/>
+</mvc:View>

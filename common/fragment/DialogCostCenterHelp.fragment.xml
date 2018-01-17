@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>利润中心列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="centerlist" items="{path: 'model_PROPOSER_PRCTR>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索利润中心列表}" value="{model_search>/PROPOSER_PRCTR}" search="onSearchPROPOSER_PRCTR"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Text text="{i18n>利润中心编码}"/>
+					</Column>
+					<Column width="70%">
+						<Text text="{i18n>利润中心}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedPROPOSER_PRCTR">
+						<cells>
+							<Text text="{model_PROPOSER_PRCTR>Prctr}"/>
+							<Text text="{model_PROPOSER_PRCTR>Ktext}"/> 
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmPROPOSER_PRCTR"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelCenterSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

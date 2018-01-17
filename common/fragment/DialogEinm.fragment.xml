@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>费用项目}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Einmlist" items="{path: 'model_Einm>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索费用项目列表}" value="{model_Einm>/SearchRetinue}" search="onSearchEinm"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Text text="{i18n>费用编码}"/>
+					</Column>
+					<Column width="70%">
+						<Text text="{i18n>费用项目}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active"  press="rowSelectedEinm">
+						<cells>
+							<Text text="{model_Einm>Eikd}"/>
+						</cells>
+						<cells>
+							<Text text="{model_Einm>Einm}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<!--<Button text="{i18n>确定}" press="onConfirmSelectRetinue"/>-->
+			<Button text="{i18n>确定}" press="onCancelEinmSelect"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelEinmSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

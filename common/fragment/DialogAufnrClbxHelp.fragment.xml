@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>订单列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Aufnrlist" items="{path: 'model_Aufnr>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索订单列表}" value="{model_search>/PROPOSER_PRCTR}" search="onSearchAufnrClbx"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="30%">
+						<Text text="{i18n>订单编码}"/>
+					</Column>
+					<Column width="70%">
+						<Text text="{i18n>订单描述}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedAufnrClbx">
+						<cells>
+							<Text text="{model_Aufnr>Aufnr}"/>
+							<Text text="{model_Aufnr>Ktext}"/> 
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onCancelAufnrClbxSelect"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelAufnrClbxSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

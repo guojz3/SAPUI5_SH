@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>功能范围列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Fkberlist" items="{path: 'model_Fkber>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索功能范围列表}" value="{model_search>/Fkber}" search="onSearchFkber"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="50%">
+						<Text text="{i18n>功能范围}"/>
+					</Column>
+					<Column width="50%">
+						<Text text="{i18n>名称}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedFkber">
+						<cells>
+							<Text text="{model_Fkber>Fkber}"/>
+							<Text text="{model_Fkber>Fkbtx}"/> 
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmFkber"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelFkberSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

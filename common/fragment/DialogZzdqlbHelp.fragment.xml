@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>地区类别列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Zzdqlblist" items="{path: 'model_Zzdqlb>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索地区类别列表}" value="{model_search>/Zzdqlb}" search="onSearchZzdqlb"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="40%">
+						<Text text="{i18n>地区类别}"/>
+					</Column>
+					<Column width="60%">
+						<Text text="{i18n>描述}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedZzdqlb">
+						<cells>
+							<Text text="{model_Zzdqlb>Zzdqlb}"/>
+							<Text text="{model_Zzdqlb>Zzdqlbms}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmZzdqlb"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelZzdqlbSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

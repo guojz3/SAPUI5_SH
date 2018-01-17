@@ -1,0 +1,297 @@
+{
+    "resources": [
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "controller/View1.controller.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "view/View1.view.xml"
+        },
+        {
+            "name": "common/view/FYSQHome.view.xml"
+        },
+        {
+            "name": "common/view/NotFound.view.xml"
+        },
+        {
+            "name": "common/view/Clinfor.view.xml"
+        },
+        {
+            "name": "common/view/Fkxx.view.xml"
+        },
+        {
+            "name": "common/view/DocPost.view.xml"
+        },
+        {
+            "name": "common/view/CLBX_ALLINFOR.view.xml"
+        },
+        {
+            "name": "common/view/Ysxq.view.xml"
+        },
+        {
+            "name": "common/view/App.view.xml"
+        },
+        {
+            "name": "common/view/JKDHome.view.xml"
+        },
+        {
+            "name": "common/css/style.css"
+        },
+        {
+            "name": "common/fragment/CLBX_HX.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfzhs04Help.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogCheckName.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogCostCenteredHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogBukrsHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfzhslbHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfzhs01Help.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogEtdscHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogCostCenterHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogAufnrClbxHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzchHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogAufnrHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZlschHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/Upload.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfzhs02Help.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_DIALOG_Hx.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfxcbHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzqtyyHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DocPost.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogDqlbHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogSpsHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_SQD.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogCostConHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/SQ.fragment.xml"
+        },
+        {
+            "name": "common/fragment/Ysxq.fragment.xml"
+        },
+        {
+            "name": "common/fragment/TodoList.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogFbkidHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_DIALOG_Fp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/Edit.fragment.xml"
+        },
+        {
+            "name": "common/fragment/Fkxx.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_XX.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogHbkidHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogVektpHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogMwskzHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogCostCenterBukrsHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfzhs05Help.fragment.xml"
+        },
+        {
+            "name": "common/fragment/JKD.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_ITEM.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogRstgrHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogCostPartHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfzhs06Help.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzdqlbHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzghjhHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzcxHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogEinm.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfzhs03Help.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzjshkdwHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogBukrs.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_FP.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzzjjhHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzfzhsnrHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_ALL.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogCtkdHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogFkberHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogWaersHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogCostCenterHelpName.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzhtbhHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogZzhthHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_HEADER.fragment.xml"
+        },
+        {
+            "name": "common/fragment/DialogBanknHelp.fragment.xml"
+        },
+        {
+            "name": "common/fragment/CLBX_DIALOG_Glsqd.fragment.xml"
+        },
+        {
+            "name": "common/controller/NotFound.controller.js"
+        },
+        {
+            "name": "common/controller/Clinfor.controller.js"
+        },
+        {
+            "name": "common/controller/App.controller.js"
+        },
+        {
+            "name": "common/controller/JKDHome.controller.js"
+        },
+        {
+            "name": "common/controller/FYSQHome.controller.js"
+        },
+        {
+            "name": "common/controller/Formatter.js"
+        },
+        {
+            "name": "common/controller/UtilWorkFlow.js"
+        },
+        {
+            "name": "common/controller/Base64.js"
+        },
+        {
+            "name": "common/controller/CLBX_ALLINFOR.controller.js"
+        },
+        {
+            "name": "common/controller/BaseController.js"
+        },
+        {
+            "name": "common/controller/UtilTest.js"
+        },
+        {
+            "name": "common/controller/Util.js"
+        },
+        {
+            "name": "common/controller/DocPost.controller.js"
+        },
+        {
+            "name": "common/controller/Ysxq.controller.js"
+        },
+        {
+            "name": "common/controller/Fkxx.controller.js"
+        },
+        {
+            "name": "common/controller/Helper.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "neo-app.json"
+        }
+    ]
+}

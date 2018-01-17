@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>辅助核算内容}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Zzfzhsnrlist" items="{path: 'model_Zzfzhsnr>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索辅助核算内容列表}" value="{model_search>/Zzfzhsnr}" search="onSearchZzfzhsnr"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="40%">
+						<Text text="{i18n>辅助核算内容}"/>
+					</Column>
+					<Column width="60%">
+						<Text text="{i18n>描述}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedZzfzhsnr">
+						<cells>
+							<Text text="{model_Zzfzhsnr>Zzfzhsnr}"/>
+							<Text text="{model_Zzfzhsnr>Zzfzhsnrms}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmZzfzhsnr"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelZzfzhsnrSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

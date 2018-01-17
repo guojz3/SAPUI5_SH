@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<Table items="{path: 'model_file>/Item'}" delete="onDeleteItem" mode="MultiSelect" id="JKD_IP_table_file"
+			noDataText=" ">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="附件" level="H2"/>
+				<ToolbarSpacer/>
+				<u:FileUploader id="fileUploader" name="myFileUpload" buttonOnly="true" useMultipart="false" multiple="false" icon="sap-icon://add"
+					iconOnly="true" uploadUrl="/sap/opu/odata/SAP/ZFYBX_ATTACHMENT_SRV/FjSet" uploadComplete="handleUploadComplete" change="fileChange"
+					enabled ="{= (${Recode} === undefined)||(${Recode} === '')||(${Recode} === '保存后生成') ? false :  true}" 
+					tooltip="{= (${Recode} === undefined)||(${Recode} === '')||(${Recode} === '保存后生成') ? '保存单据后上传文件' :  '选择文件上传'}" 
+					placeholder="">
+					<!--<u:FileUploader id="fileUploader" name="myFileUpload" buttonOnly="true" useMultipart="true" multiple="true" icon="sap-icon://add"-->
+					<!--	iconOnly="true" uploadUrl="/sap/opu/odata/SAP/ZSFUPLOAD_SRV/ZPROJKD" uploadOnChange="true"-->
+					<!--	tooltip="请选择图片上传" uploadComplete="handleUploadComplete" change="fileChange" typeMissmatch="handleTypeMissmatch"-->
+					<!--	fileType="txt,jpg,png" placeholder="">-->
+					<u:parameters>
+						<u:FileUploaderParameter name="param1" value="Foo"/>
+						<u:FileUploaderParameter name="param2" value="bar"/>
+					</u:parameters>
+					<u:headerParameters>
+						<u:FileUploaderParameter name="headerParam1" value="Foo"/>
+						<u:FileUploaderParameter name="headerParam2" value="bar"/>
+					</u:headerParameters>
+				</u:FileUploader>
+				<Button icon="sap-icon://delete" press="onDeleteFile" type="Transparent" id = "fileUpload_delete"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<!--
+			<Column width="20%">
+				<Text text="序号"/>
+			</Column>
+			-->
+			<Column>
+				<Text text="文件名"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<!--		<Text text="{model_file>NO}"/>  -->
+					<Link text="{model_file>Filename}" href="{model_file>Location}" target="_blank"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

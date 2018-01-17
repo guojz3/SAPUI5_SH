@@ -1,0 +1,47 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>申请人列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Namelist" items="{path: 'model_PROPOSER>/results' }" >
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索申请人列表}" value="{model_search>/PROPOSE}" search="onSearchPROPOSE"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="40%">
+						<Text text="{i18n>人员编号}"/>
+					</Column>	
+					<Column width="30%">
+						<Text text="{i18n>员工姓名}"/>
+					</Column>
+					<Column width="30%">
+						<Text text="{i18n>部门}"/>
+					</Column>
+					<!--<Column width="40%">-->
+					<!--	<Text text="{i18n>公司}"/>-->
+					<!--</Column>-->
+					<!--<Column width="40%">-->
+					<!--	<Text text="{i18n>利润中心}"/>-->
+					<!--</Column>					-->
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelected">
+						<cells>
+							<Text text="{model_PROPOSER>Pernr}"/>
+							<Text text="{model_PROPOSER>Sname}"/>
+							<Text text="{model_PROPOSER>Ktext}"/>
+							<!--<Text text="{model_PROPOSER>Butxt}"/>-->
+							<!--<Text text="{model_PROPOSER>Sname}"/>-->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>确定}" press="onConfirmNameSelect"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelNameSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

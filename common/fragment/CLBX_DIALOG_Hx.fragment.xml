@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog id="CLBX_dialog_hx" title="选择核销单" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="CLBX_dialogtable_hx" items="{ path: '/HxSet', sorter: { path: 'Jkdh', descending: false } }"
+				noDataText="{worklistView>/tableNoDataText}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished"
+				includeItemInSelection="true" mode="MultiSelect" modeAnimationOn="false">
+				<columns>
+					<Column width="30%">
+						<Text text="单据编号"/>
+					</Column>
+					<Column width="20%">
+						<Text text="借款日期"/>
+					</Column>
+					<Column width="20%">
+						<Text text="借款金额"/>
+					</Column>
+					<Column width="30%">
+						<Text text="借款人"/>
+					</Column>
+					<Column width="30%">
+						<Text text="已核销金额"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="onPress">
+						<cells>
+							<Text text="{Jkdh}"/>
+							<Text text="{ path: 'Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+							<VBox>
+								<Text text="{path: 'Dmbtr', formatter: '.formatter.FloatFormat'}" textAlign="Right" width="100%"/>
+							</VBox>
+							<Text text="{SnameJ}"/>
+							<VBox>
+								<Text text="{path: 'Yhxje', formatter: '.formatter.FloatFormat'}" textAlign="Right" width="100%"/>
+							</VBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button id="DialogSavehx" text="保存" press="onDialogSaveHx"/>
+		</beginButton>
+		<endButton>
+			<Button text="取消" id="DialogCancelhx" press="onDialogBackHx"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

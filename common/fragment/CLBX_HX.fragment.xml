@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<Toolbar id="tableHeader_hx">
+		<Title text="核销借款"/>
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://add" press="onHx" type="Transparent" id="CLBX_hx_ONBUTTON"/>
+		<Button icon="sap-icon://delete" press="onDeleteHx" type="Transparent" id="CLBX_hx_ONDELETE"/>
+	</Toolbar>
+	<Table id="table_hx" items="{ path: 'Header_to_hxd_r', sorter: { path: 'Jkdh', descending: false } }" noDataText=" " growing="true"
+		growingScrollToLoad="true" updateFinished="onUpdateFinished" mode="MultiSelect">
+		<columns>
+			<!--<Column id="nameColumn_hx">-->
+			<!--	<Text text="序号" id="nameColumnTitle_hx"/>-->
+			<!--</Column>-->
+			<Column id="nameColumn_hx2">
+				<Text text="单据编号" id="nameColumnTitle_hx2"/>
+			</Column>
+			<Column id="nameColumn_hx3">
+				<Text text="单据日期" id="nameColumnTitle_hx3"/>
+			</Column>
+			<Column id="nameColumn_hx5" hAlign="Center">
+				<Text text="借款人" id="nameColumnTitle_hx5"/>
+			</Column>
+			<Column id="nameColumn_hx4" hAlign="End">
+				<Text text="借款金额" id="nameColumnTitle_hx4"/>
+			</Column>
+			<Column id="nameColumn_hx7" hAlign="End">
+				<Text text="已核销金额" id="nameColumnTitle_hx7"/>
+			</Column>
+			<Column id="nameColumn_hx6" hAlign="End">
+				<Text text="本次核销金额" id="nameColumnTitle_hx6"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Active" id="table_item_hx">
+				<cells>
+					<!--<ObjectIdentifier title="{Hxdjh}"/>-->
+					<Text text="{Jkdh}"/>
+					<Text text="{ path: 'Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+					<Text text="{SnameJ}"/>
+					<Text text="{path: 'Dmbtr', formatter: '.formatter.FloatFormat'}"/>
+					<!--<Input value="{path: 'Bchxje', formatter: '.formatter.FloatFormat'}" change = "changeBchxje"/>-->
+					<Text text="{Yhxje}"/>
+					<Input value="{Bchxje}" change="changeBchxje" width="90px" textAlign="Right" id="ip_Bchxje"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

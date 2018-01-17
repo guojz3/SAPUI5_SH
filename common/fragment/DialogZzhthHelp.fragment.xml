@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>合同编号}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Zzhthlist" items="{path: 'model_Zzhth>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索合同编号列表}" value="{model_search>/Zzhth}" search="onSearchZzhth"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="40%">
+						<Text text="{i18n>合同编号}"/>
+					</Column>
+					<Column width="60%">
+						<Text text="{i18n>描述}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedZzhth">
+						<cells>
+							<Text text="{model_Zzhth>Zzhth}"/>
+							<Text text="{model_Zzhth>Zzhthms}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelZzhthSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

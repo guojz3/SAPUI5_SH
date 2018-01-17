@@ -1,0 +1,88 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<Toolbar>
+		<!--<Title id="tableHeader" text="差旅信息"/>-->
+		<Title id="tableHeader" text="{=${GLOBLEDATA>/DKKD} === 'BX'? '费用明细' : '差旅信息'}"/>
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://add" press="onAddCLINFOR" type="Transparent" id="CLBX_ITEM_ONBUTTON"/>
+		<Button icon="sap-icon://delete" press="onDeleteXX" type="Transparent" id="CLBX_ITEM_ONDELETE"/>
+	</Toolbar>
+	<Table id="CLBX_CLXX_table" items="{ path: 'Header_to_item_r', sorter: { path: 'Recode', descending: false } }" noDataText=" "
+		growing="true" growingScrollToLoad="true" mode="MultiSelect">
+		<columns>
+			<Column id="nameColumn2">
+				<Text text="费用项目" id="nameColumnTitle3"/>
+			</Column>
+			<Column id="nameColumn3">
+				<Text text="费用金额" id="nameColumnTitle4"/>
+			</Column>
+			<Column id="nameColumn4">
+				<Text text="发票金额" id="nameColumnTitle5"/>
+			</Column>
+			<Column id="nameColumn5">
+				<Text text="发票不含税金额" id="nameColumnTitle6"/>
+			</Column>
+			<Column id="nameColumn6">
+				<Text text="发票税额" id="nameColumnTitle7"/>
+			</Column>
+			<Column id="nameColumn7" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+				<Text text="出发日期" id="nameColumnTitl7"/>
+			</Column>
+			<Column id="nameColumn8" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+				<Text text="出发地点" id="nameColumnTitle8"/>
+			</Column>
+			<Column id="nameColumn9" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+				<Text text="到达日期" id="nameColumnTitle9"/>
+			</Column>
+			<Column id="nameColumn10" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+				<Text text="到达地点" id="nameColumnTitle10"/>
+			</Column>
+			<Column id="nameColumn11" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+				<Text text="交通工具" id="nameColumnTitle11"/>
+			</Column>
+			<Column id="nameColumn12" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+				<Text text="出差天数" id="nameColumnTitle12"/>
+			</Column>
+			<Column id="nameColumn13">
+				<Text text="票据张数" id="nameColumnTitle13"/>
+			</Column>
+			<Column id="nameColumn14" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? false : true}">
+				<Text text="住宿城市" id="nameColumnTitle14"/>
+			</Column>
+			<Column id="nameColumn15">
+				<Text text="成本中心" id="nameColumnTitle15"/>
+			</Column>
+			<Column id="nameColumn16">
+				<Text text="备注" id="nameColumnTitle16" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Active" press="onPress_clxx" id="clbx_clxx_table_item">
+				<cells>
+					<!--<ObjectIdentifier title="{Recode}"/>-->
+					<!--<ObjectIdentifier title="{Posnr}"/>-->
+					<Text text="{Einm}"/>
+					<Text text="{Wrbtr}"/>
+					<Text text="{Zfpje}"/>
+					<!--<Text text="{Sfzp}"/>-->
+					<Text text="{Netpr}"/>
+					<Text text="{Wmwst}"/>
+					<!--<Text text="{ path: 'Cfrq', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>-->
+					<!--<Text text="{ path: 'Cfrq'}"/>-->
+					<Text text="{ path: 'Cfrq',formatter:'.formatter.formatDate'} "/>
+					<Text text="{Ctkd1}"/>
+					<!--<Text text="{ path: 'Ddrq'}"/>-->
+					<Text text="{ path: 'Ddrq',formatter:'.formatter.formatDate'} "/>
+					<!--<Text text="{ path: 'Ddrq', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>-->
+					<Text text="{Ctkd2}"/>
+					<Text text="{Vektp_Veknm}"/>
+					<Text text="{Ccts}"/>
+					<Text text="{Pjzs}"/>
+					<Text text="{Ctkd_Ctnm}"/>
+					<Text text="{Ktext}"/>
+					<Text text="{Note}" visible="{=${GLOBLEDATA>/DKKD} === 'BX'? true : false}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

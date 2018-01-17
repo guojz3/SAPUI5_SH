@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<Toolbar>
+		<Title id="tableHeader_sq" text="关联申请单"/>
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://add" press="onGlsqd" type="Transparent" id="CLBX_SQD_ONBUTTON"/>
+		<Button icon="sap-icon://delete" press="onDeleteGL" type="Transparent" id="CLBX_SQD_ONDELETE"/>
+	</Toolbar>
+	<Table visible="true" id="table_sq" items="{ path: 'Header_to_fysq_r', sorter: { path: 'Recode', descending: false } }" noDataText=" "
+		growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+		<columns>
+			<!--<Column id="nameColumn_sq">-->
+			<!--	<Text text="序号" id="nameColumnTitle_sq"/>-->
+			<!--</Column>-->
+			<Column id="nameColumn_sq2">
+				<Text text="单据编号" id="nameColumnTitle_sq2"/>
+			</Column>
+			<Column id="nameColumn_sq3">
+				<Text text="单据日期" id="nameColumnTitle_sq3"/></Column>
+			<Column id="nameColumn_sq4">
+				<Text text="费用类型" id="nameColumnTitle_sq4"/></Column>
+			<Column id="nameColumn_sq5">
+				<Text text="申请金额" id="nameColumnTitle_sq5"/></Column>
+			<Column id="nameColumn_sq6">
+				<Text text="申请人" id="nameColumnTitle_sq6"/></Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Active" id="table_item_sq">
+				<cells>
+					<!--<ObjectIdentifier title="{Aufnr}"/>-->
+					<Text text="{Recode}"/>
+					<Text text="{ path: 'Redate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+					<Text text="{Etkd}"/>
+					<Text text="{Amountsum}"/>
+					<Text text="{Pernr}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

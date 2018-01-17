@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>货币}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="waerslist" items="{ path: '/WAERSSet', sorter: { path: 'Waers', descending: false } }">
+				
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索货币列表}" value="{model_search>/Waers}" search="onSearchWaers"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="50%">
+						<Text text="{i18n>货币编码}"/>
+					</Column>
+					<Column width="50%">
+						<Text text="{i18n>货币名称}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedWaers">
+						<cells>
+							<Text text="{Waers}"/>
+							<Text text="{Ktext}"/> 
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelWaersSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

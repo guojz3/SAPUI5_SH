@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" title="{i18n>付款银行列表}" contentWidth="50%" contentHeight="100%">
+		<content>
+			<Table id="Hbkidlist" items="{path: 'model_Hbkid>/results' }">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField placeholder="{i18n>搜索付款银行}" value="{model_search>/Hbkid}" search="onSearchHbkid"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="50%">
+						<Text text="{i18n>付款银行编码}"/>
+					</Column>
+					<Column width="50%">
+						<Text text="{i18n>名称}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="rowSelectedHbkid">
+						<cells>
+							<Text text="{model_Hbkid>Hbkid}"/>
+							<Text text="{model_Hbkid>Text1}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	 
+		<endButton>
+			<Button text="{i18n>取消}" press="onCancelHbkidSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
