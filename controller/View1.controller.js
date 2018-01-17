@@ -4,6 +4,6 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("sh.bz.common.controller.View1", {
-
+// here is a change
 	});
 });
